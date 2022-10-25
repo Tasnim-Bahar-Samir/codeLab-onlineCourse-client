@@ -1,8 +1,11 @@
 import React from 'react'
+import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/images/logo.webp'
+import { authContext } from '../../Contexts/UserContext';
 
 const Header = () => {
+    const {user} = useContext(authContext)
   return (
     <div className="navbar bg-gray-200 px-8">
         <div className="flex-1">
@@ -16,6 +19,7 @@ const Header = () => {
             <NavLink className='hover:text-orange-600' to='/blog'>FAQ</NavLink>
             <NavLink className='hover:text-orange-600'  to='/courses'>Blog</NavLink>
             <NavLink className='px-4 py-1 rounded text-white bg-orange-600' to='/login'>Login</NavLink>
+            <Link>{user?.name}</Link>
         </div>
     </div>
   )
