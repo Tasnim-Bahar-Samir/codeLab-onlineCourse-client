@@ -18,7 +18,7 @@ const Header = () => {
             <NavLink className='hover:text-orange-600' to='/courses'>Courses</NavLink>
             <NavLink className='hover:text-orange-600' to='/faq'>FAQ</NavLink>
             <NavLink className='hover:text-orange-600'  to='/blog'>Blog</NavLink>
-            <NavLink className='px-4 py-1 rounded text-white bg-orange-600' to='/login'>Login</NavLink>
+            <Link className='px-4 py-1 rounded text-white bg-orange-600' to='/login'>Login</Link>
             <Link>{user?.name}</Link>
         </div>
     </div>

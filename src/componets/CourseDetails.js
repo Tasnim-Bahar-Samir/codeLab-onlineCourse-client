@@ -2,13 +2,18 @@ import React from 'react'
 import { Link, useLoaderData } from 'react-router-dom'
 import {FaStar,FaCrown} from 'react-icons/fa'
 
+
+
 const CourseDetails = () => {
     const courseDetails = useLoaderData();
     const {img,description,rating,name,instructor,id} = courseDetails;
   return (
     <div className='mt-8 border mx-32 rounded-xl'>
         <div className=" bg-base-100 shadow-xl">
-            <h2 className='text-3xl p-10'>{name}</h2>
+            <div className='flex justify-between p-10'>
+                <h2 className='text-3xl '>{name}</h2>
+                <button>pdf</button>
+            </div>
             <figure className="px-10 pt-10 ">
                 <img src={img} alt="Shoes" className="rounded-xl md:w-72" />
             </figure>
