@@ -22,7 +22,10 @@ const Header = () => {
             {
                 user?.uid ?
                     <>
-                        <Link>{user?.photoURL? user.photoURL:<FaUserAlt/>}</Link>
+                        <Link title={user.displayName?user.displayName:'User Name'}>{user?.photoURL? 
+                        <img className='w-10 rounded-full' src={user.photoURL} alt="" />
+                        :
+                        <FaUserAlt/>}</Link>
                         <button onClick={userSignOut} className='px-3 rounded-md border-2 border-orange-600'>Logout</button>
                     </>
                 :

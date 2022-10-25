@@ -2,9 +2,10 @@ import React from 'react'
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { authContext } from '../../Contexts/UserContext';
+import SignInPopup from '../../Shared/SignInPopup';
 
 const Register = () => {
-  const {createUser} = useContext(authContext)
+  const {createUser,updateUserProfile} = useContext(authContext)
   const handleRegister = (e) =>{
     e.preventDefault()
     const form = e.target;
@@ -18,8 +19,15 @@ const Register = () => {
     .then(result => {
       const user = result.user;
       console.log(user)
+      handleUpdateUser(name,photo)
     })
     .catch(e => console.error(e))
+  }
+  const handleUpdateUser =(name,photo) =>{
+    const profile = {displayName:name,photoURL:photo}
+    updateUserProfile(profile)
+    .then(()=>{})
+    .catch((e)=>console.error(e))
   }
   return (
     <div className="md:w-[500px]  mx-auto min-h-screen w-72">
@@ -80,6 +88,7 @@ const Register = () => {
               <button className="w-full text-white py-2 rounded-xl active:scale-95 bg-orange-600">Register</button>
               <small className=" text-xs mt-2 ">Already have an account?<Link className="text-orange-600 text-sm" to='/login'>Login now. </Link></small>
             </div>
+            <SignInPopup/>
           </form>
         </div>
       </div>

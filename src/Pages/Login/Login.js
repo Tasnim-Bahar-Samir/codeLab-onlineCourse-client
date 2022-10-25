@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { Link, useNavigate,useLocation } from "react-router-dom";
 import { authContext } from "../../Contexts/UserContext";
+import SignInPopup from "../../Shared/SignInPopup";
 
 
 const Login = () => {
@@ -72,6 +73,7 @@ const Login = () => {
               <button className="w-full text-white py-2 rounded-xl active:scale-95 bg-orange-600">Login</button>
               <small className=" text-xs mt-2 ">New to this website?<Link className="text-orange-600 text-sm" to='/register'>Create an account.</Link></small>
             </div>
+            <SignInPopup/>
           </form>
         </div>
       </div>
