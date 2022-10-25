@@ -50,7 +50,6 @@ const Register = () => {
                 name="photo"
                 placeholder="photo url"
                 className="input input-bordered focus:border-2  focus:border-orange-600 focus:outline-none"
-                required
               />
             </div>
             <div className="form-control">
@@ -79,7 +78,7 @@ const Register = () => {
             </div>
             <div className="form-control mt-6">
               <button className="w-full text-white py-2 rounded-xl active:scale-95 bg-orange-600">Register</button>
-              <small className=" text-xs mt-2 ">Already have an account?<Link className="text-orange-600" to='/login'>Login now. </Link></small>
+              <small className=" text-xs mt-2 ">Already have an account?<Link className="text-orange-600 text-sm" to='/login'>Login now. </Link></small>
             </div>
           </form>
         </div>

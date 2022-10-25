@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/images/logo.webp'
 import { authContext } from '../../Contexts/UserContext';
 import './Header.css'
+import { FaUserAlt } from 'react-icons/fa';
 const Header = () => {
     const {user} = useContext(authContext)
   return (
@@ -18,8 +19,16 @@ const Header = () => {
             <NavLink className='hover:text-orange-600' to='/courses'>Courses</NavLink>
             <NavLink className='hover:text-orange-600' to='/faq'>FAQ</NavLink>
             <NavLink className='hover:text-orange-600'  to='/blog'>Blog</NavLink>
-            <Link className='px-4 py-1 rounded text-white bg-orange-600' to='/login'>Login</Link>
-            <Link>{user?.name}</Link>
+            {
+                user?.uid ?
+                    <>
+                        <Link>{user?.photoURL? user.photoURL:<FaUserAlt/>}</Link>
+                        <button className='px-3 rounded-md border-2 border-orange-600'>Logout</button>
+                    </>
+                :
+                    <Link className='px-4 py-1 rounded text-white bg-orange-600' to='/login'>Login</Link>
+            }
+            
         </div>
     </div>
   )

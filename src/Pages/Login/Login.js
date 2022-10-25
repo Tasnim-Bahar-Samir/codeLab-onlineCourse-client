@@ -66,7 +66,7 @@ const Login = () => {
             </div>
             <div className="form-control mt-6">
               <button className="w-full text-white py-2 rounded-xl active:scale-95 bg-orange-600">Login</button>
-              <small className=" text-xs mt-2 ">New to this website?<Link className="text-orange-600" to='/register'>Create an account.</Link></small>
+              <small className=" text-xs mt-2 ">New to this website?<Link className="text-orange-600 text-sm" to='/register'>Create an account.</Link></small>
             </div>
           </form>
         </div>
