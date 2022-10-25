@@ -6,7 +6,7 @@ import { authContext } from '../../Contexts/UserContext';
 import './Header.css'
 import { FaUserAlt } from 'react-icons/fa';
 const Header = () => {
-    const {user} = useContext(authContext)
+    const {user,userSignOut} = useContext(authContext)
   return (
     <div className="navbar bg-gray-200 px-8">
         <div className="flex-1">
@@ -23,7 +23,7 @@ const Header = () => {
                 user?.uid ?
                     <>
                         <Link>{user?.photoURL? user.photoURL:<FaUserAlt/>}</Link>
-                        <button className='px-3 rounded-md border-2 border-orange-600'>Logout</button>
+                        <button onClick={userSignOut} className='px-3 rounded-md border-2 border-orange-600'>Logout</button>
                     </>
                 :
                     <Link className='px-4 py-1 rounded text-white bg-orange-600' to='/login'>Login</Link>
