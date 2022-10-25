@@ -1,13 +1,28 @@
 import React from "react";
+import { useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { authContext } from "../../Contexts/UserContext";
+
 
 const Login = () => {
+  const [error,setError] = useState('')
+  const {userLogin} = useContext(authContext);
     const handleLogin = (e) =>{
         e.preventDefault()
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email,password)
+        userLogin(email,password)
+        .then(result => {
+          const user = result.user;
+          console.log(user)
+        })
+        .catch(err => {
+          console.error(err)
+          setError("Invalid Email or Password!")
+        })
     }
   return (
     <div className="md:w-[500px]  mx-auto min-h-screen w-72">
@@ -40,10 +55,13 @@ const Login = () => {
                 className="input input-bordered focus:border-2  focus:border-orange-600 focus:outline-none"
                 required
               />
+              {
+                error&&<p className="text-red-700">{error}</p>
+              }
               <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
+                {/* <a href="#" className="label-text-alt link link-hover">
                   Forgot password?
-                </a>
+                </a> */}
               </label>
             </div>
             <div className="form-control mt-6">
