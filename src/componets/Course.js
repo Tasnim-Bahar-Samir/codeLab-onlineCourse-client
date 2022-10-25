@@ -6,12 +6,13 @@ const Course = ({course}) => {
     const {img,id,name,duration,price} = course;
   return (
     <div className="card bg-base-100 shadow-xl">
-        <figure className='bg-gray-200 p-4'><img className=' lg:h-52' src={img} alt="Shoes" /></figure>
+        <figure className='bg-gray-200 p-4'><img className=' lg:h-52' src={img} alt="img" /></figure>
         <div className="card-body">
-            <h2 className="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
+            <h2 className="card-title">{name}</h2>
+            <p>Duration: <span className='font-bold'>{duration}</span></p>
+            <p>Price: <span className='text-orange-600'>{price}$</span></p>
             <div className="card-actions justify-end">
-                <Link to={`course/:${id}`}>
+                <Link to={`/course/${id}`}>
                     <button className="text-white py-2 px-4 rounded-xl active:scale-95 bg-orange-600 flex items-center">Details    <AiOutlineDoubleRight/></button>
                 </Link>
             </div>
