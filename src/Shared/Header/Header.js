@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/images/logo.webp'
 import { authContext } from '../../Contexts/UserContext';
-
+import './Header.css'
 const Header = () => {
     const {user} = useContext(authContext)
   return (
@@ -16,8 +16,8 @@ const Header = () => {
         </div>
         <div className="flex gap-4 lg:gap-6 pr-5 text-lg">
             <NavLink className='hover:text-orange-600' to='/courses'>Courses</NavLink>
-            <NavLink className='hover:text-orange-600' to='/blog'>FAQ</NavLink>
-            <NavLink className='hover:text-orange-600'  to='/courses'>Blog</NavLink>
+            <NavLink className='hover:text-orange-600' to='/faq'>FAQ</NavLink>
+            <NavLink className='hover:text-orange-600'  to='/blog'>Blog</NavLink>
             <NavLink className='px-4 py-1 rounded text-white bg-orange-600' to='/login'>Login</NavLink>
             <Link>{user?.name}</Link>
         </div>
