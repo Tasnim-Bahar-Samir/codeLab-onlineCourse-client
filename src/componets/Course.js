@@ -1,14 +1,19 @@
 import React from 'react'
-
+import {AiOutlineDoubleRight} from 'react-icons/ai'
+import { Link } from 'react-router-dom';
 const Course = ({course}) => {
+    console.log(course)
+    const {img,id,name,duration,price} = course;
   return (
     <div className="card bg-base-100 shadow-xl">
-        <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
+        <figure className='bg-gray-200 p-4'><img className=' lg:h-52' src={img} alt="Shoes" /></figure>
         <div className="card-body">
             <h2 className="card-title">Shoes!</h2>
             <p>If a dog chews shoes whose shoes does he choose?</p>
             <div className="card-actions justify-end">
-                <button className="text-white py-2 rounded-xl active:scale-95 bg-orange-600 ">Buy Now</button>
+                <Link to={`course/:${id}`}>
+                    <button className="text-white py-2 px-4 rounded-xl active:scale-95 bg-orange-600 flex items-center">Details    <AiOutlineDoubleRight/></button>
+                </Link>
             </div>
         </div>
     </div>
