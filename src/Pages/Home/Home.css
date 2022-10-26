@@ -1,0 +1,7 @@
+.banner{
+    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,1)),url(../../assets/images/banner.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+}

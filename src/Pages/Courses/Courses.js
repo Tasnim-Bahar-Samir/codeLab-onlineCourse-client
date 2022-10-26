@@ -5,14 +5,14 @@ import Course from '../../componets/Course'
 const Courses = () => {
   const courses = useLoaderData()
   return (
-    <div className='courses-container grid grid-flow-col lg:px-10 mt-16 gap-3'>
-      <div className='title col-span-4'>
+    <div className='courses-container grid grid-flow-col lg:pr-10 gap-3 relative'>
+      <div className='title col-span-4 shadow-2xl pl-10 sticky top-0 pt-10 h-screen'>
         <h2 className='text-2xl font-bold mb-4'>All Courses: {courses.length}</h2>
         {
-          courses.map(course =><Link to={`/course/${course.id}`} key={course.id}><p className='mb-3 cursor-pointer underline hover:text-orange-600 font-semibold'>{course.name}</p></Link>)
+          courses.map(course =><Link to={`/course/${course.id}`} key={course.id}><p className=' mb-9 cursor-pointer underline hover:text-orange-600 font-semibold'>{course.name}</p></Link>)
         }
       </div>
-      <div className='courses col-span-8'>
+      <div className='courses col-span-8 mt-16'>
         <div className='grid grid-cols-2 gap-4'>
           {
             courses.map(course => <Course key={course.id} course={course}></Course>)

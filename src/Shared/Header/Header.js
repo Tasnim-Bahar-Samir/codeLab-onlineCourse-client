@@ -8,24 +8,26 @@ import { FaUserAlt } from 'react-icons/fa';
 const Header = () => {
     const {user,userSignOut} = useContext(authContext)
   return (
-    <div className="navbar bg-gray-200 px-8">
+    <div className="navbar bg-gray-200 px-8 shadow-xl mb-1">
         <div className="flex-1">
             <Link to='/' className="normal-case text-3xl font-mono flex items-center">
                 <img className='text-primary w-10 rounded-sm' src={logo} alt="" />
                 <p>Code<span className=' text-orange-600'>Lab</span></p>
             </Link>
         </div>
-        <div className="flex gap-4 lg:gap-6 pr-5 text-lg">
+        <div className="flex gap-4 lg:gap-6 pr-5 text-md">
             <NavLink className='hover:text-orange-600' to='/courses'>Courses</NavLink>
             <NavLink className='hover:text-orange-600' to='/faq'>FAQ</NavLink>
             <NavLink className='hover:text-orange-600'  to='/blog'>Blog</NavLink>
             {
                 user?.uid ?
                     <>
-                        <Link title={user.displayName?user.displayName:'User Name'}>{user?.photoURL? 
-                        <img className='w-10 rounded-full' src={user.photoURL} alt="" />
+                       <div className="tooltip tooltip-bottom" data-tip={user.displayName?user.displayName:'User Name'}>
+                        <Link >{user?.photoURL? 
+                        <img className='w-6 rounded-full' src={user.photoURL} alt="" />
                         :
                         <FaUserAlt/>}</Link>
+                       </div>
                         <button onClick={userSignOut} className='px-3 rounded-md border-2 border-orange-600'>Logout</button>
                     </>
                 :

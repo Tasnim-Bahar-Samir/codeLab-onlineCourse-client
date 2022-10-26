@@ -8,7 +8,7 @@ const CourseDetails = () => {
     const courseDetails = useLoaderData();
     const {img,description,rating,name,instructor,id} = courseDetails;
   return (
-    <div className='mt-8 border mx-32 rounded-xl'>
+    <div className='mt-8 border-2 mx-32 rounded-xl'>
         <div className=" bg-base-100 shadow-xl">
             <div className='flex justify-between p-10'>
                 <h2 className='text-3xl '>{name}</h2>
