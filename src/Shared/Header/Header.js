@@ -37,7 +37,7 @@ const Header = () => {
                     <>
                        <div className="tooltip tooltip-bottom" data-tip={user.displayName?user.displayName:'User Name'}>
                         <Link >{user?.photoURL? 
-                        <img className='w-6 rounded-full' src={user.photoURL} alt="" />
+                        <img className='w-6 md:w-10 rounded-full' src={user.photoURL} alt="" />
                         :
                         <FaUserAlt/>}</Link>
                        </div>

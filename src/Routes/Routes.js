@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
             {
                 path:'courses',
                 element:<Courses/>,
-                loader:()=>fetch('http://localhost:5000/courses')
+                loader:()=>fetch('https://codelab-server-smoky.vercel.app/courses')
             },
             {
                 path:'blog',
@@ -44,12 +44,12 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/course/:id',
-                loader:({params})=>fetch(`http://localhost:5000/course/${params.id}`),
+                loader:({params})=>fetch(`https://codelab-server-smoky.vercel.app/course/${params.id}`),
                 element:<CourseDetails/>
             },
             {
                 path:'/checkout/:id',
-                loader:({params}) =>fetch(`http://localhost:5000/course/${params.id}`),
+                loader:({params}) =>fetch(`https://codelab-server-smoky.vercel.app/course/${params.id}`),
                 element:<PrivateRoutes><Checkout/></PrivateRoutes>
             }
         ]

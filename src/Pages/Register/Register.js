@@ -8,7 +8,7 @@ import SignInPopup from '../../Shared/SignInPopup';
 
 
 const Register = () => {
-  const [error,setError] = useState('')
+  const [regError,setRegError] = useState('')
   const {createUser,updateUserProfile} = useContext(authContext)
   const navigate = useNavigate()
   const location = useLocation()
@@ -23,7 +23,7 @@ const Register = () => {
     console.log(name,email,password,photo);
 
     if(password.length<6){
-      return setError('Password should be more than 6 digits.')
+      return setRegError('Password should be more than 6 digits.')
     }
     createUser(email,password)
     .then(result => {
@@ -33,7 +33,9 @@ const Register = () => {
       navigate(from,{replace:true})
       toast.success('User Registered Successfully')
     })
-    .catch(e => console.error(e))
+    .catch(e => {
+      setRegError(e.message)
+    })
   }
   const handleUpdateUser =(name,photo) =>{
     const profile = {displayName:name,photoURL:photo}
@@ -95,7 +97,7 @@ const Register = () => {
                 className="input input-bordered focus:border-2  focus:border-orange-600 focus:outline-none"
                 required
               />
-              <p className='text-red-600'>{error}</p>
+              <p className='text-red-600'>{regError}</p>
             </div>
             <div className="form-control mt-6">
               <button className="w-full text-white py-2 rounded-xl active:scale-95 bg-orange-600">Register</button>
