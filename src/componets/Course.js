@@ -2,7 +2,7 @@ import React from 'react'
 import {AiOutlineDoubleRight} from 'react-icons/ai'
 import { Link } from 'react-router-dom';
 const Course = ({course}) => {
-    console.log(course)
+    
     const {img,id,name,duration,price} = course;
   return (
     <div className="card bg-base-100 shadow-xl">

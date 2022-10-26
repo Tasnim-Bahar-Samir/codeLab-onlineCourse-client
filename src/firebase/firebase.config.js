@@ -1,16 +1,12 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+import { initializeApp } from "firebase/app";
 const firebaseConfig = {
-  apiKey: "AIzaSyD9jjGoGQvVbcPJEOb5vIs1LoxQbT3gukA",
-  authDomain: "codelab-online-learning.firebaseapp.com",
-  projectId: "codelab-online-learning",
-  storageBucket: "codelab-online-learning.appspot.com",
-  messagingSenderId: "221908779942",
-  appId: "1:221908779942:web:363969f8cf8b258d5cc567"
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase
