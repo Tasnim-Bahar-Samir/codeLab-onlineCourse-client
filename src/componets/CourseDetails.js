@@ -8,14 +8,14 @@ const CourseDetails = () => {
     const courseDetails = useLoaderData();
     const {img,description,rating,name,instructor,id} = courseDetails;
   return (
-    <div className='mt-8 border-2 mx-32 rounded-xl'>
+    <div className='mt-8 border-2 md:mx-32 mx-3 rounded-xl'>
         <div className=" bg-base-100 shadow-xl">
-            <div className='flex justify-between p-10'>
+            <div className='flex justify-between md:p-10 p-2'>
                 <h2 className='text-3xl '>{name}</h2>
                 <button>pdf</button>
             </div>
             <figure className="px-10 pt-10 ">
-                <img src={img} alt="Shoes" className="rounded-xl md:w-72" />
+                <img src={img} alt="img" className="rounded-xl md:w-72 w-48" />
             </figure>
             <div className="card-body ">
                 <p className='flex items-center gap-1'><FaStar className=' text-amber-400'/> {rating}</p>
