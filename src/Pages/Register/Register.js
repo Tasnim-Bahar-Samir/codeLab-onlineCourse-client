@@ -34,7 +34,8 @@ const Register = () => {
       toast.success('User Registered Successfully')
     })
     .catch(e => {
-      setRegError(e.message)
+      setRegError(e.message
+      )
     })
   }
   const handleUpdateUser =(name,photo) =>{
