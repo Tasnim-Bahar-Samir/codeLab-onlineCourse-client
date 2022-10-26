@@ -1,11 +1,18 @@
 import React from 'react'
+import { useState } from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { authContext } from '../../Contexts/UserContext';
 import SignInPopup from '../../Shared/SignInPopup';
 
+
 const Register = () => {
+  const [error,setError] = useState('')
   const {createUser,updateUserProfile} = useContext(authContext)
+  const navigate = useNavigate()
+  const location = useLocation()
+  const from = location.state?.from?.pathname || '/'
   const handleRegister = (e) =>{
     e.preventDefault()
     const form = e.target;
@@ -15,11 +22,16 @@ const Register = () => {
     const password = form.password.value;
     console.log(name,email,password,photo);
 
+    if(password.length<6){
+      return setError('Password should be more than 6 digits.')
+    }
     createUser(email,password)
     .then(result => {
       const user = result.user;
       console.log(user)
       handleUpdateUser(name,photo)
+      navigate(from,{replace:true})
+      toast.success('User Registered Successfully')
     })
     .catch(e => console.error(e))
   }
@@ -83,6 +95,7 @@ const Register = () => {
                 className="input input-bordered focus:border-2  focus:border-orange-600 focus:outline-none"
                 required
               />
+              <p className='text-red-600'>{error}</p>
             </div>
             <div className="form-control mt-6">
               <button className="w-full text-white py-2 rounded-xl active:scale-95 bg-orange-600">Register</button>

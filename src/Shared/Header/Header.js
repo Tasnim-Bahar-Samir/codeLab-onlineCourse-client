@@ -4,11 +4,11 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/images/logo.webp'
 import { authContext } from '../../Contexts/UserContext';
 import './Header.css'
-import { FaUserAlt } from 'react-icons/fa';
+import { FaToggleOff, FaToggleOn, FaUserAlt } from 'react-icons/fa';
 const Header = () => {
-    const {user,userSignOut} = useContext(authContext)
+    const {user,userSignOut,darkMode,setDarkMode} = useContext(authContext)
   return (
-    <div className="navbar bg-gray-200 px-8 shadow-xl mb-1">
+    <div className="navbar bg-gray-200 px-8 shadow-xl mb-2 py-5">
         <div className="flex-1">
             <Link to='/' className="normal-case text-3xl font-mono flex items-center">
                 <img className='text-primary w-10 rounded-sm' src={logo} alt="" />
@@ -33,6 +33,7 @@ const Header = () => {
                 :
                     <Link className='px-4 py-1 rounded text-white bg-orange-600' to='/login'>Login</Link>
             }
+            <button onClick={()=>setDarkMode(!darkMode)} className='flex items-center gap-1'>Dark Mode{darkMode?<FaToggleOn className='text-xl'/>:<FaToggleOff className='text-xl'/>}</button>
             
         </div>
     </div>

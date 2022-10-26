@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
+import toast from "react-hot-toast";
 import { Link, useNavigate,useLocation } from "react-router-dom";
 import { authContext } from "../../Contexts/UserContext";
 import SignInPopup from "../../Shared/SignInPopup";
@@ -23,9 +24,11 @@ const Login = () => {
           const user = result.user;
           console.log(user);
           navigate(from,{replace:true})
+          toast.success('User loged in successfully')
         })
         .catch(err => {
           console.error(err)
+          toast.error('Invalid Email or Password!')
           setError("Invalid Email or Password!")
         })
     }

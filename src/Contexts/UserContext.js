@@ -13,6 +13,8 @@ const UserContext = ({children}) => {
   const[user,setUser] = useState(null)
   const [loader,setLoader] = useState(true)
 
+  const [darkMode,setDarkMode] = useState(false);
+
   const createUser = (email,password)=>{
     setLoader(true)
     return createUserWithEmailAndPassword(auth,email,password)
@@ -53,7 +55,7 @@ const UserContext = ({children}) => {
   }, [])
   
 
-    const userInfo ={user,createUser,userLogin,userSignOut,loader,updateUserProfile,googleSignIn,gitHubSignIn}
+    const userInfo ={user,createUser,userLogin,userSignOut,loader,updateUserProfile,googleSignIn,gitHubSignIn,darkMode,setDarkMode}
   return (
     <authContext.Provider value={userInfo}>
       {
