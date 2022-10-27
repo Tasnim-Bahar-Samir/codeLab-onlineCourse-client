@@ -2,11 +2,14 @@ import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { FaStar, FaCrown, FaFilePdf } from "react-icons/fa";
 import Pdf from "react-to-pdf";
+import { useContext } from "react";
+import { authContext } from "../Contexts/UserContext";
 
 const ref = React.createRef();
 
 const CourseDetails = () => {
   const courseDetails = useLoaderData();
+  const{darkMode} = useContext(authContext)
   const { img, description, rating, name, instructor, id } = courseDetails;
   return (
     <div className="mt-8 md:mx-32 mx-3 ">
@@ -21,7 +24,7 @@ const CourseDetails = () => {
           )}
         </Pdf>
       </div>
-      <div className=" bg-base-100 shadow-xl border-2 rounded-xl md:p-8 p-3">
+      <div className={`bg-base-100 shadow-xl border-2 rounded-xl md:p-8 p-3 ${darkMode&& 'bg-gray-800'}`}>
         <div ref={ref}>
           <h2 className="text-3xl ">{name}</h2>
           <figure className="px-10 pt-10 ">

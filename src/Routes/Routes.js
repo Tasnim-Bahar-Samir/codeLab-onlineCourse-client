@@ -8,6 +8,7 @@ import Faq from "../Pages/Faq/Faq";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Checkout from "../Pages/PremiumAccess/Checkout";
+import Profile from "../Pages/Profile/Profile";
 import Register from "../Pages/Register/Register";
 import PrivateRoutes from "./PrivateRoutes";
 
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
             {
                 path:'/register',
                 element:<Register/>
+            },
+            {
+                path:'/profile',
+                element:<PrivateRoutes><Profile/></PrivateRoutes>
             },
             {
                 path:'/course/:id',

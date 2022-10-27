@@ -23,7 +23,8 @@ const SignInPopup = () => {
     }
     const handlGithubSignIn = ()=>{
       gitHubSignIn(GithubProvider)
-      .then(()=>{
+      .then((res)=>{
+        console.log(res.user)
         navigate(from, {replace:true})
       })
       .catch(()=>{})
