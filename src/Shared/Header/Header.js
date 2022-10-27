@@ -24,7 +24,7 @@ const Header = () => {
             <NavLink className='hover:text-orange-600' to='/courses'>Courses</NavLink>
             <NavLink className='hover:text-orange-600' to='/faq'>FAQ</NavLink>
             <NavLink className='hover:text-orange-600'  to='/blog'>Blog</NavLink>
-            <button onClick={()=>setDarkMode(!darkMode)} className='flex items-center gap-1'>Dark Mode{darkMode?<FaToggleOn className='text-xl'/>:<FaToggleOff className='text-xl'/>}</button>
+            <button onClick={()=>setDarkMode(!darkMode)} className='flex items-center gap-1'>{darkMode? <><span>Light Mode</span><FaToggleOn className='text-xl'/></>:<><span>Dark Mode</span><FaToggleOff className='text-xl'/></>}</button>
             </div>
             {
                 open?
