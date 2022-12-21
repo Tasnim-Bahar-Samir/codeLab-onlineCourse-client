@@ -4,6 +4,7 @@ import { FaArrowRight } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import Instructors from './Instructors'
 import About from './About'
+import Contact from './Contact'
 
 const Home = () => {
   return (
@@ -17,8 +18,9 @@ const Home = () => {
         </Link>
       </div>
     </div>
-    <Instructors/>
     <About/>
+    <Instructors/>
+    <Contact/>
     </>
   )
 }
