@@ -3,6 +3,7 @@ import './Home.css'
 import { FaArrowRight } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import Instructors from './Instructors'
+import About from './About'
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       </div>
     </div>
     <Instructors/>
+    <About/>
     </>
   )
 }
